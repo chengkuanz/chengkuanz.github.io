@@ -210,20 +210,20 @@
 				</section>
 
 				<!-- modify this form HTML and place wherever you want your form -->
-<form id="my-form" action="https://formspree.io/f/mnqwvbwq" method="POST">
-	<label>Name:</label>
-  <input type="text" name="name" />
-	<br />
-  <label>Email:</label>
-  <input type="email" name="email" />
-	<br />
-  <label>Message:</label>
-  <input type="text" name="message" />
-	<br />
-  <button id="my-form-button">Submit</button>
-  <p id="my-form-status"></p>
-	<br><br><br><br /><br /><br /><br />
-</form>
+				<form id="my-form" action="https://formspree.io/f/mnqwvbwq" method="POST">
+					<label>Name:</label>
+					<input type="text" name="name" />
+					<br />
+					<label>Email:</label>
+					<input type="email" name="email" />
+					<br />
+					<label>Message:</label>
+					<input type="text" name="message" />
+					<br />
+					<button id="my-form-button">Submit</button>
+					<p id="my-form-status"></p>
+					<br><br><br><br /><br /><br /><br />
+				</form>
 
 
 			</div>
@@ -257,15 +257,6 @@
 						<li><a href="elements.html">Elements</a></li>
 						<li><a href="index.html#contact">Gallery</a></li>
 						<li><a href="index.html#posts">posts</a></li>
-						<li>
-							<span class="opener">posts</span>
-							<ul>
-								<li><a href="index.html#posts">Lorem Dolor</a></li>
-								<li><a href="#">Ipsum Adipiscing</a></li>
-								<li><a href="#">Tempus Magna</a></li>
-								<li><a href="#">Feugiat Veroeros</a></li>
-							</ul>
-						</li>
 						<li><a href="projects.html#contact">Projects</a></li>
 						<li><a href="https://github.com/chengkuanz">Github</a></li>
 						<li><a href="index.html#contact">Contact</a></li>
@@ -325,12 +316,11 @@
 
 
 
-				<!-- clustrmaps today pageviewer:-->
-				<!-- <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=a&t=t&d=A4o1tCVd1tW3-A5ZfNmec50dUBKFkfz2lybsptlH3ro'></script> -->
-				<!-- clustrmaps total pageviewer:-->
-				<script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=a&t=tt&d=A4o1tCVd1tW3-A5ZfNmec50dUBKFkfz2lybsptlH3ro'></script>
 				<!-- Footer -->
 				<footer id="footer">
+					<!-- clustrmaps total pageviewer:-->
+					<script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=a&t=tt&d=A4o1tCVd1tW3-A5ZfNmec50dUBKFkfz2lybsptlH3ro'></script>
+					<br />
 					<p class="copyright">&copy; 2022 Chengkuan Zhao. Hosted by <a href="https://pages.github.com/">Github Pages</a>. Design: <a href="https://html5up.net">HTML5 UP</a>. Date modified: 2022-03-04</p>
 				</footer>
 
@@ -347,36 +337,36 @@
 	<script src="assets/js/main.js"></script>
 	<!-- ajax form Place this script at the end of the body tag -->
 	<script>
-	    var form = document.getElementById("my-form");
+		var form = document.getElementById("my-form");
 
-	    async function handleSubmit(event) {
-	      event.preventDefault();
-	      var status = document.getElementById("my-form-status");
-	      var data = new FormData(event.target);
-	      fetch(event.target.action, {
-	        method: form.method,
-	        body: data,
-	        headers: {
-	            'Accept': 'application/json'
-	        }
-	      }).then(response => {
-	        if (response.ok) {
-	          status.innerHTML = "Thanks for your submission!";
-	          form.reset()
-	        } else {
-	          response.json().then(data => {
-	            if (Object.hasOwn(data, 'errors')) {
-	              status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
-	            } else {
-	              status.innerHTML = "Oops! There was a problem submitting your form"
-	            }
-	          })
-	        }
-	      }).catch(error => {
-	        status.innerHTML = "Oops! There was a problem submitting your form"
-	      });
-	    }
-	    form.addEventListener("submit", handleSubmit)
+		async function handleSubmit(event) {
+			event.preventDefault();
+			var status = document.getElementById("my-form-status");
+			var data = new FormData(event.target);
+			fetch(event.target.action, {
+				method: form.method,
+				body: data,
+				headers: {
+					'Accept': 'application/json'
+				}
+			}).then(response => {
+				if (response.ok) {
+					status.innerHTML = "Thanks for your submission!";
+					form.reset()
+				} else {
+					response.json().then(data => {
+						if (Object.hasOwn(data, 'errors')) {
+							status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
+						} else {
+							status.innerHTML = "Oops! There was a problem submitting your form"
+						}
+					})
+				}
+			}).catch(error => {
+				status.innerHTML = "Oops! There was a problem submitting your form"
+			});
+		}
+		form.addEventListener("submit", handleSubmit)
 	</script>
 </body>
 
