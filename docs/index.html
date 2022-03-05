@@ -204,37 +204,27 @@
 									</tr>
 								</tbody>
 							</table>
-							<br><br><br><br /><br /><br /><br /><br />
+
 						</header>
 					</div>
 				</section>
 
 				<!-- modify this form HTML and place wherever you want your form -->
 <form id="my-form" action="https://formspree.io/f/mnqwvbwq" method="POST">
+	<label>Name:</label>
+  <input type="text" name="name" />
+	<br />
   <label>Email:</label>
   <input type="email" name="email" />
+	<br />
   <label>Message:</label>
   <input type="text" name="message" />
+	<br />
   <button id="my-form-button">Submit</button>
   <p id="my-form-status"></p>
+	<br><br><br><br /><br /><br /><br />
 </form>
 
-<!-- modify this form HTML and place wherever you want your form -->
-<form
-  action="https://formspree.io/f/mnqwvbwq"
-  method="POST"
->
-  <label>
-    Your email:
-    <input type="email" name="email">
-  </label>
-  <label>
-    Your message:
-    <textarea name="message"></textarea>
-  </label>
-  <!-- your other form fields go here -->
-  <button type="submit">Send</button>
-</form>
 
 			</div>
 		</div>
@@ -358,7 +348,7 @@
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
-	<!-- Place this script at the end of the body tag -->
+	<!-- ajax form Place this script at the end of the body tag -->
 	<script>
 	    var form = document.getElementById("my-form");
 
